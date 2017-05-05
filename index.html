@@ -1,0 +1,193 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The TPuter</title>
+  <meta name="description" content="The TPuter">
+  <meta name="author" content="Zorbulator">
+   <p style="font-size:36px; font-family:monospace; background-color: white">
+	The TPuter!!
+	</p>
+	<p style="font-size:20px; font-family:monospace; background-color: white">
+	The buttons are set for Charmin Ultra Strong, but you can enter in any type yourself. Click the TPute button to find the best deal!
+	</p> 
+<form id= "form1" name="form1" method="post">
+        <input type="button" name="set_ValueD" id="set_ValueD" value="Double" onclick="setD()" class="button1"/>
+
+        <input type="button" name="set_ValueDP" id="set_ValueDP" value="Double Plus" onclick="setDP()" class="button1"/>
+
+        <input type="button" name="set_ValueM" id="set_ValueM" value="Mega" onclick="setM()" class="button1"/>
+
+        <input type="button" name="set_ValueG" id="set_ValueG" value="Giant" onclick="setG()" class="button1"/>
+        <br>
+        <br>                                                                                                          
+        <input type="button" name="set_Value4" id="set_Value4" value="4 Rolls" onclick="set4()" class="button"/>
+        <input type="button" name="set_Value6" id="set_Value6" value="6 Rolls" onclick="set6()" class="button"/>
+        <input type="button" name="set_Value8" id="set_Value8" value="8 Rolls" onclick="set8()" class="button"/>
+        <input type="button" name="set_Value9" id="set_Value9" value="9 Rolls" onclick="set9()" class="button"/>
+        <input type="button" name="set_Value12" id="set_Value12" value="12 Rolls" onclick="set12()" class="button"/>
+		<input type="button" name="set_Value16" id="set_Value16" value="16 Rolls" onclick="set16()" class="button"/>
+		<input type="button" name="set_Value18" id="set_Value18" value="18 Rolls" onclick="set18()" class="button"/>
+        <input type="button" name="set_Value24" id="set_Value24" value="24 Rolls" onclick="set24()" class="button"/>
+        <input type="button" name="set_Value30" id="set_Value30" value="30 Rolls" onclick="set30()" class="button"/>
+        <input type="button" name="set_Value36" id="set_Value36" value="36 Rolls" onclick="set36()" class="button"/>                                                                                     
+                                                                                                         
+</form>
+	
+<br>
+<br> 
+<form action="TPuter.html" style="font-size:20px; font-family:monospace; background-color: white">
+    Sheets per roll: <input type="text" name="spr" id="spr">
+    Rolls: <input type="text" name="rolls" id="rolls">
+    Price: <input type="text" name="price" id="price">
+	Name: <input type="text" name="size" id="size">
+    <input type="button" value ="Add To List" onclick="done()"class="button2">
+</form>
+<br>
+<br>
+<button id="best" onclick="tpute()" class="button3">Click to TPute!</button>	
+<script type="text/javascript">
+    function setD() {
+        document.getElementById('size').value = "Double";
+        document.getElementById('spr').value = "154";                                                     
+    }
+    function setDP() {
+        document.getElementById('size').value = "Double Plus";
+        document.getElementById('spr').value = "176";                                                     
+    }
+    function setM() {
+        document.getElementById('size').value = "Mega";
+        document.getElementById('spr').value = "308";                                                     
+    }
+    function setG() {
+        document.getElementById('size').value = "Giant";
+        document.getElementById('spr').value = "300";
+                                                    
+    }
+    function set4() {
+    document.getElementById('rolls').value = "4";                                                 
+    }
+   	function set6() {
+        document.getElementById('rolls').value = "6";                                                   
+    }                                            
+    function set8() {
+        document.getElementById('rolls').value = "8";                                                   
+    }
+    function set9() {
+        document.getElementById('rolls').value = "9";                                                   
+    }                                               
+    function set12() {
+        document.getElementById('rolls').value = "12";                                                
+    }
+	function set16() {
+        document.getElementById('rolls').value = "16";                                                
+    }
+	function set18() {
+        document.getElementById('rolls').value = "18";                                                
+    }
+    function set24() {
+        document.getElementById('rolls').value = "24";                                              
+    }  
+        function set30() {
+        document.getElementById('rolls').value = "30";                                              
+    }
+        function set36() {
+        document.getElementById('rolls').value = "36";                                              
+    }                                                
+</script>
+ 
+</head>
+
+<body>
+	<br>
+  <script type="text/javascript">
+	var type = 0;  
+	var rolls = [];
+	var spr = [];
+	var price = [];
+	var score = [];
+	var name = [];  
+	  function done() {
+		rolls[type] = document.getElementById('rolls').value;
+		spr[type] = document.getElementById('spr').value;
+		price[type] = document.getElementById('price').value;
+		size[type] = document.getElementById('size').value;  
+		var x = document.createElement("P");
+    	var t = document.createTextNode(" - "+size[type]+" - "+rolls[type]+" rolls - $"+price[type]);
+    	x.appendChild(t);
+    	document.body.appendChild(x);
+   
+   x.setAttribute("style", "background-color:#4edd44; font-size:2em; font-family:monospace;");
+		type++
+	  }
+	  function tpute() {
+		  for (i = 0; i < rolls.length; i++) {
+			  score[i]=rolls[i]*spr[i]/price[i];
+	  }
+		  var message = "Buy "+size[score.indexOf(Math.max.apply(Math, score))]+" With "+rolls[score.indexOf(Math.max.apply(Math, score))]+" Rolls";
+		  //document.write(size[score.indexOf(Math.max.apply(Math, score))])
+		  //document.getElementById('best').innerHTML = size[score.indexOf(Math.max.apply(Math, score))];
+		  document.getElementById('best').innerHTML = message;
+	  }
+	</script>
+	
+  <script src="js/scripts.js"></script>
+</body>
+	<style>
+.button {
+    background-color: #f9b301; /* Yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	
+}
+</style>
+	
+<style>
+	.button1 {
+    background-color: #0aceaa; /* Red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	</style>
+<style>
+	.button2 {
+    background-color: #319b1b; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	</style>
+<style>
+	.button3 {
+    background-color: #b70303; /* Red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	border-radius: 50px 50px 50px 50px;	
+	</style>
+	<style>
+body  {
+    background-image: url("https://i.ytimg.com/vi/DUGroVDEVfQ/hqdefault.jpg");
+    background-color: #cccccc;
+}
+</style>
+	
+</html>
