@@ -8,6 +8,8 @@
 <!-- versionCode is optional and Android only -->
 
   <name>The TPuter</name>
+    Toilet-paper-tissue-roll.jpg
+    <icon src="Toilet-paper-tissue-roll.jpg" />
 
   <description>
       An app to calculate the best deal for toilet paper.
